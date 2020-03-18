@@ -1,0 +1,20 @@
+1.localstorage.sessionstorage和cookie
+2.三列布局(具体:竖着上下固定高，中间自适应)
+3.v-if和v-show的区别
+4.跨域（基本上每次面试都问过）
+5.项目中的兼容问题
+6.vue全家桶(每次都问)，vuex(深看)
+7.keep-alive
+8.ES5和ES6新特性
+9.继承
+10.性能优化
+11.一个页面从输入 URL 到页面加载显示完成，这个过程中都发生了什么？
+12.if-else和三目运算的区别
+13.Vue的绑定原理和双向绑定
+14.promise
+15.vue中computed与methods的区别，computed和watch的区别
+16.http状态码
+17.组件间传参
+18.路由: router.push和router.replace的差别
+19.闭包
+20.对this的理解
