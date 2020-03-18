@@ -1,0 +1,149 @@
+﻿iweb项目
+==========================
+
+iweb旧项目
+前端: jQuery+Ajax
+后端: PHP+MySQL
+iweb新项目
+前端: Vue+axios+Bootstrap
+后端: NodeJS+Express+MySQL
+
+上线: 新浪云
+
+前端技术栈  MEAN(MongoDB|MySQL+Express+Angular+NodeJS)
+后端: LAMPP(Linux+Apache+MySQL+PHP+Python+Perl)
+---------------------------
+项目阶段的纪律
+1. 知识点不会太细
+2. 授课是平均速度
+3. 尽量找一个学伴
+4. 每天的任务做汇总
+   总结用到的知识点
+   突破自己的知识盲点
+
+软件: XAMPP(PHP+MySQL(MariaDB+phpMyAdmin))
+编辑器: VSCode
+接口测试软件: 
+1. Postman
+2. APIPost(下载安装+注册账号)上课用
+3. Postwoman
+
+FTP: 1907/110_iweb/*
+
+XAMPP的启用
+1. 启动apache和mysql
+2. apache启动后,可以在浏览器输入
+   http://localhost
+   访问C:/xampp/htdocs/目录
+3. iweb项目所在的位置
+   C:/xampp/htdocs/iweb/
+   http://localhost/iweb/
+4. 将iweb.zip解压到iweb/
+   C:/xampp/htdocs/iweb/iweb/目录下
+C:/xampp/htdocs/iweb/iweb/index.html
+http://localhost/iweb/iweb/index.html
+5. 启用xampp的mysql数据库
+6. 创建项目的数据库
+   6.1 SQL文件iweb/sql/iweb.sql
+   6.2 创建数据库并导入
+      a) 打开phpMyAdmin的"SQL"菜单,然后将iweb.sql的命令复制到"SQL"菜单的文本域中.然后点"执行"按钮
+      b) 在命令行中执行导入
+         create database iweb
+         use iweb
+         source C:/xampp/htdocs/iweb/iweb/sql/iweb.sql
+7. 配置iweb项目的数据库连接
+   iweb/php/init.php
+('127.0.0.1','root','','iweb_old',3306);
+   主机名   用户名 密码 数据库名 端口
+
+搭建本地的后台API平台
+1. 在iweb目录下创建iweb_node目录
+   C:/xampp/htdocs/iweb/iweb_node/
+2. 初始化node项目
+   在命令行中进入上述目录 cd 路径
+   初始化node项目
+   npm init
+   在iweb_node/目录下回生成package.json文件
+   安装必要的NodeJS包(模块)
+   npm i express -S
+   npm i mysql -S
+   npm i body-parser -S
+3. 声明index.js
+   启动express
+   声明访问路由
+4. 启动服务器
+   node ./index.js
+5. 将路由放到iweb_node/route/目录下统一维护
+   iweb_node/route/user.js
+   iweb_node/route/teacher.js
+   iweb_node/route/course.js
+   .......
+6. 在iweb_node/route/teacher.js声明路由 
+   6.1 引入express
+   6.2 创建路由器对象
+   6.3 声明路由
+   6.4 导出模块
+   练习: 声明首页路由  /
+   route/index.js
+
+   const indexRouter = require("./route/index.js")
+   app.use("/", indexRouter);
+7. 声明mysql连接
+   7.1 创建iweb_node/pool.js
+   7.2 创建MySQL连接池,并导出
+8. 声明讲师列表接口
+   查询teacher数据表,并返回json数据
+9. 将讲师列表接口保存到apipost中
+   9.1 创建项目       iweb
+   9.2 创建开发环境   dev5050
+       声明环境变量url(接口前缀)
+       选择开发环境dev5050
+   9.3 点"+"创建接口,
+      填写接口名称: 讲师列表
+      接口地址: {{url}}/teacher/list,
+       点"发送"查看接口返回结果
+   9.4 接口测试完毕,点"保存"
+10. 声明用户注册接口
+    10.1 请求方式是 post
+    10.2 请求路由 /user/register
+       - body-parser注册为中间件
+       - 接收表单提交数据 req.body
+       - 插入语句(INSERT ...,?占位符)
+       - 接收插入的返回结果
+         uid:result.insertId
+    10.3 返回用户 uid和uname
+
+
+容易写错的单词
+data    数据
+date    日期
+alter   修改   ALTER TABLE ...
+alert   警告
+message 消息
+massage 按摩
+
+http://127.0.0.1:5050/teacher/list
+http://127.0.0.1:5050/teacher/add
+http://127.0.0.1:5050/teacher/info
+{{url}}/teacher/info
+.........
+
+
+作业:
+1. 复习今天的内容
+   1.1 sql文件的导入(命令)
+   1.2 NodeJS基础
+   1.3 熟悉APIPost的使用
+2. 完成用户登录接口的开发
+   2.1 请求方式是 post
+   2.2 请求地址 /user/login
+   2.3 逻辑: 根据用户名和密码,查询一条用户信息
+   2.4 最终返回uid和uname
+
+
+
+
+
+
+
+
